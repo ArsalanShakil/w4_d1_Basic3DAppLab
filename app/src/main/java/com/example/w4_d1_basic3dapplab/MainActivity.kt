@@ -74,15 +74,14 @@ class MainActivity : AppCompatActivity() {
             // Sets this as the selected node in the TransformationSystem
             viewNode.select()
 
-
-
-
         }
+
     }
 
     private fun add3dObject() {
         val frame = arFrag.arSceneView.arFrame
         if (frame != null && modelRenderable != null) {
+            addBtn.visibility = View.GONE
             val pt = getScreenCenter()
             val hits = frame.hitTest(pt.x.toFloat(), pt.y.toFloat())
             for (hit in hits) {
@@ -93,11 +92,13 @@ class MainActivity : AppCompatActivity() {
                     anchorNode.setParent(arFrag.arSceneView.scene)
                     val mNode =
                         TransformableNode(arFrag.transformationSystem)
+                    mNode.setOnTapListener { hitTestResult, motionEvent ->
+                        addBtn.visibility = View.VISIBLE
+                    }
                     mNode.renderable = modelRenderable
                     mNode.scaleController.minScale = 0.05f
                     mNode.scaleController.maxScale = 2.0f
                     mNode.localScale = Vector3(0.2f, 0.2f, 0.2f)
-                    addBtn.visibility = View.GONE
                     mNode.setParent(anchorNode)
                     mNode.select()
                     break
