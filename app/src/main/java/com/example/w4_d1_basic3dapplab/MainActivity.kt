@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity() {
                         addBtn.visibility = View.VISIBLE
                     }
                     mNode.renderable = modelRenderable
-                    mNode.scaleController.minScale = 0.05f
+                    mNode.scaleController.minScale = 0.4f
                     mNode.scaleController.maxScale = 2.0f
                     mNode.localScale = Vector3(0.2f, 0.2f, 0.2f)
                     mNode.setParent(anchorNode)
