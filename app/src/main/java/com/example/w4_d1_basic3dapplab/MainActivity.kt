@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                 .permitAll().build())
         // (CC BY 4.0) Donated by Cesium for glTF testing.
         ModelRenderable.builder()
-            .setSource(this, Uri.parse("https://github.com/KhronosGroup/glTF-Sample-Models/raw/master/2.0/CesiumMan/glTF/CesiumMan.gltf"))
+            .setSource(this, Uri.parse("file:///android_asset/poly.gltf"))
             .setIsFilamentGltf(true)
             .setAsyncLoadEnabled(true)
             .setRegistryId("CesiumMan")
